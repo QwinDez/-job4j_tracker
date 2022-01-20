@@ -9,6 +9,10 @@ public class Product {
         this.count = count;
     }
 
+    public Product() {
+
+    }
+
     public String getName() {
         return name;
     }

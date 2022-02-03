@@ -12,7 +12,15 @@ public class Fact {
         return result;
     }
 
+    public static int calcRec(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return calcRec(n - 1) * n;
+    }
+
     public static void main(String[] args) {
-        new Fact().calc(-1);
+        int rsl = calcRec(3);
+        System.out.println(rsl);
     }
 }

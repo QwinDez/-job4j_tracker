@@ -17,31 +17,35 @@ public class Tracker implements Store {
 
     @Override
     public boolean delete(int id) {
-        return this.items.remove(this.findById(id));
+        int index = indexOf(id);
+        boolean rsl = index != -1;
+        if (rsl) {
+            items.remove(index);
+        }
+        return rsl;
     }
 
     @Override
     public boolean replace(int id, Item item) {
-        boolean result = false;
         int index = indexOf(id);
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
+            item.setId(id);
             this.items.remove(index);
             this.items.add(index, item);
-            item.setId(id);
-            result = true;
         }
         return result;
     }
 
     @Override
     public List<Item> findAll() {
-        return this.items;
+        return List.copyOf(items);
     }
 
     @Override
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
-        for (Item item: this.items) {
+        for (Item item : this.items) {
             if (item.getName().equals(key)) {
                 result.add(item);
             }

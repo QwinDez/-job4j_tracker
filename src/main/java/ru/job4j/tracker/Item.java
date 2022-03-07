@@ -23,15 +23,6 @@ public class Item {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Item{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", created=" + created.format(FORMATTER)
-                + '}';
-    }
-
     public int getId() {
         return id;
     }
@@ -67,6 +58,15 @@ public class Item {
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(id, name, created);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", created=" + created.format(FORMATTER)
+                + '}';
     }
 }

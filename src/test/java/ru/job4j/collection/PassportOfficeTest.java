@@ -17,11 +17,11 @@ public class PassportOfficeTest {
 
     @Test
     public void addDuplicate() {
-        Citizen citizen1 = new Citizen("2f44a", "Petr Arsemtev");
-        Citizen citizen2 = new Citizen("2f44a", "Petr Arsemtev");
+        Citizen citizenPetr = new Citizen("2f44a", "Petr Arsemtev");
+        Citizen citizenPetrDublicate = new Citizen("2f44a", "Petr Arsemtev");
         PassportOffice office = new PassportOffice();
-        office.add(citizen1);
-        assertFalse(office.add(citizen2));
+        office.add(citizenPetr);
+        assertFalse(office.add(citizenPetrDublicate));
     }
 
 }

@@ -31,8 +31,7 @@ public class Tracker implements Store {
         boolean result = index != -1;
         if (result) {
             item.setId(id);
-            this.items.remove(index);
-            this.items.add(index, item);
+            items.set(index, item);
         }
         return result;
     }

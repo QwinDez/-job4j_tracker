@@ -2,10 +2,20 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает модель данных - банковский счет
+ * @author Denis Soldatkin
+ * @version 1.0
+ */
 public class Account {
     private String requisite;
     private double balance;
 
+    /**
+     * Конструктор для банковского счета
+     * @param requisite реквизиты счета
+     * @param balance баланс счета
+     */
     public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
@@ -39,6 +49,10 @@ public class Account {
         return Objects.equals(requisite, account.requisite);
     }
 
+    /**
+     * Метод возвращает hashCode реквизитов
+     * @return возвращает hashCode реквизитов
+     */
     @Override
     public int hashCode() {
         return Objects.hash(requisite);

@@ -5,13 +5,12 @@ import java.util.Comparator;
 public class StringCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
-        int rsl = left.length() - right.length();
-        int strLength = rsl > 0 ? right.length() : left.length();
+        int strLength = Math.min(left.length(), right.length());
         for (int index = 0; index < strLength; index++) {
             if (left.charAt(index) != right.charAt(index)) {
-                rsl = left.charAt(index) - right.charAt(index);
+                return Character.compare(left.charAt(index), right.charAt(index));
             }
         }
-        return rsl;
+        return Integer.compare(left.length(), right.length());
     }
 }

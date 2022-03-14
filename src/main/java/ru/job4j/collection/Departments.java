@@ -5,17 +5,12 @@ import java.util.*;
 public class Departments {
 
     public static List<String> fillGaps(List<String> deps) {
-        HashSet<String> tmp = new HashSet<>();
+        Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                if (start.isEmpty()) {
-                    tmp.add(el);
-                    start = el;
-                } else {
-                    start = start + "/" + el;
-                    tmp.add(start);
-                }
+                start += start.isEmpty() ? el : "/" + el;
+                tmp.add(start);
             }
         }
         List<String> rsl = new ArrayList<>(tmp);

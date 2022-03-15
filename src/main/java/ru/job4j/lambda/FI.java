@@ -13,7 +13,7 @@ public class FI {
         Comparator<Attachment> comparator = (first, second) -> Integer.compare(first.getSize(), second.getSize());
         Comparator<String> cmpSize = (first, second) -> Integer.compare(first.length(), second.length());
         Comparator<String> cmpText = (left, right) -> left.compareTo(right);
-        Comparator<String> cmpDescSize = (left, right) -> right.compareTo(left);
+        Comparator<String> cmpDescSize = (left, right) -> Integer.compare(right.length(), left.length());
         Arrays.sort(atts, comparator);
     }
 }

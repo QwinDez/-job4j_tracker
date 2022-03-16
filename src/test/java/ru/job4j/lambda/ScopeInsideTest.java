@@ -26,8 +26,8 @@ public class ScopeInsideTest {
 
     @Test
     public void whenLogarithmicFunctionThenLogarithmicResults() {
-        List<Double> result = ScopeInside.diapason(1, 3, Math::log);
-        List<Double> expected = Arrays.asList(0D, 0.6931471805599453D);
+        List<Double> result = ScopeInside.diapason(1, 3, x -> Math.pow(2, x));
+        List<Double> expected = Arrays.asList(2D, 4D);
         assertThat(result, is(expected));
     }
 }

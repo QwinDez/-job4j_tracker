@@ -21,7 +21,7 @@ public class SchoolTest {
                 new Student(90, "Surname9")
         );
         School sc = new School();
-        Predicate<Student> predict = student -> student.getScore() > 50;
+        Predicate<Student> predict = student -> student.getScore() >= 70;
         List<Student> rsl = sc.collect(students, predict);
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(70, "Surname7"));

@@ -11,9 +11,8 @@ public class College {
     }
 
     public Optional<Student> findByAccount(String account) {
-        return Optional.of(students.keySet())
+        return students.keySet()
                 .stream()
-                .flatMap(Collection::stream)
                 .filter(s -> s.getAccount().equals(account))
                 .findFirst();
     }
